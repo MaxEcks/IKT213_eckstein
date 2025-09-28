@@ -1,0 +1,24 @@
+folder,img1,img2,match_count,wall_time_s,cpu_time_s
+different_1,101_6.tif,105_6.tif,16,0.030780,0.078125
+different_10,101_6.tif,104_7.tif,20,0.015531,0.015625
+different_2,102_5.tif,106_7.tif,4,0.014267,0.015625
+different_3,106_8.tif,107_6.tif,7,0.014481,0.109375
+different_4,106_6.tif,106_7.tif,11,0.015947,0.015625
+different_5,105_6.tif,107_6.tif,4,0.013881,0.015625
+different_6,103_8.tif,104_1.tif,7,0.013076,0.000000
+different_7,103_1.tif,107_6.tif,7,0.015458,0.109375
+different_8,101_4.tif,104_4.tif,19,0.014705,0.015625
+different_9,101_4.tif,107_6.tif,22,0.012986,0.015625
+same_1,101_6.tif,101_7.tif,61,0.014371,0.078125
+same_10,104_7.tif,104_8.tif,55,0.013732,0.015625
+same_2,105_6.tif,105_7.tif,28,0.071389,0.031250
+same_3,102_5.tif,102_6.tif,14,0.024261,0.015625
+same_4,106_7.tif,106_8.tif,15,0.016665,0.015625
+same_5,107_6.tif,107_7.tif,74,0.017432,0.015625
+same_6,101_1.tif,101_2.tif,30,0.019283,0.125000
+same_7,106_6.tif,106_7.tif,50,0.017662,0.015625
+same_8,107_6.tif,107_7.tif,73,0.017324,0.031250
+same_9,103_1.tif,103_2.tif,24,0.017398,0.015625
+folder,img1,img2,match_count,wall_time_s,cpu_time_s
+different,UiA front1.png,mci.jpg,29,0.057811,0.156250
+same,UiA front1.png,UiA front3.jpg,35,0.061305,0.062500
