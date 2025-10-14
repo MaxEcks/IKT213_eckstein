@@ -52,7 +52,7 @@ def copy(image, emptyPictureArray):
     """
     4. In this function a manual copy is made of the original image.
     """
-    height, width, channels = img.shape
+    height, width, channels = image.shape
     
     for y in range(height):
         for x in range(width):
@@ -84,17 +84,19 @@ def hue_shifted(image, emptyPictureArray, hue : int):
     """
     7. This function shifts the color values of a given RGB image.
     """
-    # I used modulo 256 to wrap around color values and prevent overflow (0–255 range).
 
     height, width, channels = image.shape
     
     for y in range(height):
         for x in range(width):
             for c in range(channels):
-                emptyPictureArray[y, x, c] = (int(image[y, x, c]) + hue) % 256
-
-    # Alternative:
-    # emptyPictureArray[:, :, :] = (image.astype(np.int16)) + hue) % 256
+                val = int(image[y, x, c]) + hue
+                # limitation to valid area (0–255)
+                if val > 255:
+                    val = 255
+                elif val < 0:
+                    val = 0
+                emptyPictureArray[y, x, c] = val
 
     return emptyPictureArray
 
@@ -129,7 +131,7 @@ if __name__ == "__main__":
     plot_image(padded_image, "padded image")
     save_image(padded_image, "padded_image.png")
 
-    cropped_image = crop(img, 80, 512-130, 80, 512-130)
+    cropped_image = crop(img, 80, width-130, 80, height-130)
     plot_image(cropped_image, "cropped image")
     save_image(cropped_image, "cropped_image.png")
 
@@ -149,13 +151,9 @@ if __name__ == "__main__":
     plot_image(hsv_image, "hsv image")
     save_image(hsv_image, "hsv_image.png")
 
-    hue_left_shifted_image = hue_shifted(hsv_image, emptyPictureArray, -50)
-    plot_image(hue_left_shifted_image, "hue left shifted image")
-    save_image(hue_left_shifted_image, "hue_left_shifted_image.png")
-
-    hue_right_shifted_image = hue_shifted(hsv_image, emptyPictureArray, 50)
-    plot_image(hue_right_shifted_image, "hue right shifted image")
-    save_image(hue_right_shifted_image, "hue_right_shifted_image.png")
+    hue_shifted_image = hue_shifted(img, emptyPictureArray, 50)
+    plot_image(hue_shifted_image, "hue shifted image")
+    save_image(hue_shifted_image, "hue_shifted_image.png")
 
     smoothed_image = smoothing(img)
     plot_image(smoothed_image, "smoothed image")
